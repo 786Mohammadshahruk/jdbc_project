@@ -18,22 +18,22 @@ public class JdbcStatementGetDetailsExample {
                 // Creating String Query
                 String query = "SELECT PersonID, LastName, FirstName, Address, City FROM Persons";
                 //Executing SQL Query
-                ResultSet value = statement.executeQuery(query);
+                if (statement.execute(query)) {
+                    ResultSet value = statement.executeQuery(query);
+                    while (value.next()) {
+                        System.out.println("PersonID : " + value.getInt("PersonID"));
+                        System.out.println("LastName : " + value.getString("LastName"));
+                        System.out.println("FirstName : " + value.getString("FirstName"));
+                        System.out.println("Address : " + value.getString("Address"));
+                        System.out.println("City : " + value.getString("City"));
 
-
-                while (value.next()){
-                    System.out.println("PersonID : " + value.getInt("PersonID") );
-                    System.out.println("LastName : " + value.getString("LastName") );
-                    System.out.println("FirstName : " + value.getString("FirstName") );
-                    System.out.println("Address : " + value.getString("Address") );
-                    System.out.println("City : " + value.getString("City") );
-
-                    System.out.println("=====================================");
-                    System.out.println("PersonID : " + value.getInt(1) );
-                    System.out.println("LastName : " + value.getString(2) );
-                    System.out.println("FirstName : " + value.getString(3) );
-                    System.out.println("Address : " + value.getString(4) );
-                    System.out.println("City : " + value.getString(5) );
+                        System.out.println("=====================================");
+                        System.out.println("PersonID : " + value.getInt(1));
+                        System.out.println("LastName : " + value.getString(2));
+                        System.out.println("FirstName : " + value.getString(3));
+                        System.out.println("Address : " + value.getString(4));
+                        System.out.println("City : " + value.getString(5));
+                    }
                 }
             }
 

@@ -9,7 +9,7 @@ public class Common {
     static String USER_NAME = "root";
     static String PASSWORD = "root12345";
 
-    static Connection loadAndCreateConnection() {
+    public static Connection loadAndCreateConnection() {
         Connection connection = null;
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
