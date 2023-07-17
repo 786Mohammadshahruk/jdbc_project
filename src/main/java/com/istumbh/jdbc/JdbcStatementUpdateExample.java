@@ -16,9 +16,12 @@ public class JdbcStatementUpdateExample {
                 //Initializing Statement Object
                 Statement statement = connection.createStatement();
                 // Creating String Query
-                String query = "UPDATE Persons SET PersonID = 3 WHERE PersonID = '2'";
+                String query = "UPDATE Persons SET PersonID = 1 WHERE PersonID = '4'";
                 //Executing SQL Query
-                int value = statement.executeUpdate(query);
+                //int value = statement.executeUpdate(query);
+
+                boolean value = statement.execute(query);
+
                 System.out.println("Value : " + value);
             }
 
